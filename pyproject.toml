@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "hotel-room-booking-app"
+version = "0.1.0"
+description = ""
+authors = ["Dvaraz <withoutme1988@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.6"
+djangorestframework = "^3.14.0"
+python-dotenv = "^1.0.0"
+psycopg2-binary = "^2.9.9"
+django-filter = "^23.3"
+djoser = "^2.2.0"
+djangorestframework-simplejwt = "^5.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+pytest-django = "^4.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
