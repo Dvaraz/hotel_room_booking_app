@@ -13,7 +13,7 @@ def admin_client(api_client, admin_user):
 
 @pytest.fixture
 def user_test1(api_client):
-    response = api_client.post("/api/v1/account/auth/users/", {
+    api_client.post("/api/v1/account/auth/users/", {
         "email": "test1@gmail.com",
         "password": "Qwertime123",
         "re_password": "Qwertime123"
@@ -35,4 +35,3 @@ def testing_rooms(api_client):
             price=int(room) * 10,
             places=int(room) // 2
         ).save()
-

@@ -29,4 +29,3 @@ def test_room_delete(admin_client, testing_rooms):
 
     assert response.status_code == 302
     assert test_room1.room_name == '13'
-

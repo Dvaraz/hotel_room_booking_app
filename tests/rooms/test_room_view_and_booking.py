@@ -99,6 +99,3 @@ def test_user_bookings_room_book_cancel_list_of_rooms_with_dates_(api_client, us
 
     assert cancel_booking.status_code == 302
     assert len(bookings.data) == 1
-
-
-

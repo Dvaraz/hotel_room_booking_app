@@ -68,9 +68,6 @@ class RoomBookView(APIView):
                 check_in=data['check_in'],
                 check_out=data['check_out'],
             )
-        except IntegrityError as e:
+        except IntegrityError:
             return Response({'message': 'Sorry, this room already booked for these dates.'})
         return Response({'message': 'success'})
-
-
-
