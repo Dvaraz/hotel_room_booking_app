@@ -1,3 +1,23 @@
-from django.shortcuts import render
+from rest_framework.generics import mixins
+from rest_framework.viewsets import GenericViewSet
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from django.shortcuts import redirect
 
-# Create your views here.
+from core.rooms.models import Booking
+from core.rooms.serializers import UserBookingSerializer
+
+
+class UserBookingsView(mixins.ListModelMixin, GenericViewSet):
+    def list(self, request, *args, **kwargs):
+        queryset = Booking.objects.filter(user=request.user.pk)
+        serializer_out = UserBookingSerializer(queryset, many=True)
+        return Response(serializer_out.data)
+
+
+class UserBookingCancelView(APIView):
+    def post(self, request, pk):
+        booking = Booking.objects.filter(pk=pk)
+
+        booking.delete()
+        return redirect('list_of_bookings')
