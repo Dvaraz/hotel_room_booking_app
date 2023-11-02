@@ -9,6 +9,13 @@ from core.rooms.serializers import UserBookingSerializer
 
 
 class UserBookingsView(mixins.ListModelMixin, GenericViewSet):
+    serializer_class = UserBookingSerializer
+
+    def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return Booking.objects.none()
+        return Booking.objects.exclude(slug=self.kwargs["slug"])
+
     def list(self, request, *args, **kwargs):
         queryset = Booking.objects.filter(user=request.user.pk)
         serializer_out = UserBookingSerializer(queryset, many=True)
