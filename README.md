@@ -5,7 +5,7 @@ ___
 
 # Quick Start
 
-NOTE: The project uses Python 3.11, so need it installed first. It is recommended to use pyenv for installation.
+NOTE: The project uses Python 3.11, so need it installed first. It is recommended to use pyenv for installation.\
 NOTE: Better to use PostgreSQL version > 10.0
 
 **Here is a short instruction on how to quickly set up the project for development:**
